@@ -15,7 +15,7 @@ angular.module('app', [])
       for(var i=0;i<data.length;i++){
         y.dd.push(data[i]);
       }
-    
+    fw
     }
 
 });
@@ -31,17 +31,34 @@ y.url = y.dd.webformatURL
     <head>
       <title></title>
     </head>
+    <style>
+    .maz{
+      float:left;
+      position:relative;
+      margin-left:30px;
+    }
+
+    </style>
     <body>
-  <label for="fname">Your Search</label>
-<input type="text" name="searched" ng-module = "input" id="sr"/>
-    <button ng-click="$ctrl.btn()" class="button button2">Submit Searched</button>
 
-<div ng-repeat=" image in $ctrl.dd" >
- 
- <img src="{{image.webformatURL }}" />
+  
+  <div class="input-group">
+<input type="text" class="form-control"  name="searched" ng-module = "input" id="sr"/>
+<div class="input-group-btn">
 
- 
+    <button ng-click="$ctrl.btn()"  class="btn btn-default" class="button button2"><i class="glyphicon glyphicon-search"></i></button>
+       </div>
+    </div>
+
+  <div class="responsive">
+  <div class="gallery">
+ <div class="maz" target="_blank" ng-repeat=" image in $ctrl.dd" >
+
+<a href={{image.webformatURL}}> <img src="{{image.webformatURL }}" alt="Lights" width="300" height="200" /></a>
+
+  <div class="desc">Add a description of the image here</div>
   </div>
+</div>
     </body>
     </html>
 
