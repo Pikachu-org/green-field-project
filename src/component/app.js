@@ -22,7 +22,7 @@ angular.module('app', [])
       // setTimeout(function(){
         console.log(y.dd)
       // }, 3000)
-y.url = y.dd.webformatURL
+//y.url = y.dd.webformatURL
   }
     },
     template: `
@@ -37,13 +37,25 @@ y.url = y.dd.webformatURL
       position:relative;
       margin-left:30px;
     }
-
+    .lk{
+   
+      position: absolute;
+    right: 20px;
+    }
+    .borderimg {
+    border: 10px solid transparent;
+    padding: 15px;
+   
+}
+   
     </style>
     <body>
 
+
   
   <div class="input-group">
-<input type="text" class="form-control"  name="searched" ng-module = "input" id="sr"/>
+
+<input type="text" class="form-control"  name="searched" ng-module = "input" id="sr" width="30" height="200"/>
 <div class="input-group-btn">
 
     <button ng-click="$ctrl.btn()"  class="btn btn-default" class="button button2"><i class="glyphicon glyphicon-search"></i></button>
@@ -54,11 +66,12 @@ y.url = y.dd.webformatURL
   <div class="gallery">
  <div class="maz" target="_blank" ng-repeat=" image in $ctrl.dd" >
 
-<a href={{image.webformatURL}}> <img src="{{image.webformatURL }}" alt="Lights" width="300" height="200" /></a>
+<a href={{image.webformatURL}}> <img src="{{image.webformatURL }} class="borderimg" alt="Lights" width="300" height="200"  /></a><br><button class="lk"  ><span class="glyphicon glyphicon-thumbs-up"></span></button><br>
 
-  <div class="desc">Add a description of the image here</div>
+  <div class="desc">Likes:{{image.likes}}</div>
   </div>
 </div>
+
     </body>
     </html>
 
