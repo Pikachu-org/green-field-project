@@ -1,9 +1,11 @@
 angular.module('app', [])
   .component('app', {
-    controller: function() {
+    controller: function($scope) {
       this.dd = [];
       var y=this;
+      $scope.change;
       this.btn=function(){
+         $scope.change=true;
       var elem=document.getElementById('sr').value;
       console.log(elem)
       $.ajax({
@@ -15,15 +17,31 @@ angular.module('app', [])
       for(var i=0;i<data.length;i++){
         y.dd.push(data[i]);
       }
-    fw
     }
-
 });
-      // setTimeout(function(){
-        console.log(y.dd)
-      // }, 3000)
-//y.url = y.dd.webformatURL
-  }
+
+
+}
+
+     this.btn2=function(){
+       $scope.image=false;
+      var elem=document.getElementById('sr').value;
+      console.log(elem)
+      $.ajax({
+    async: false,
+    url: "/Search2",
+    method: "POST",
+    data: {data:elem},
+    success:function(data){
+      for(var i=0;i<data.length;i++){
+        y.dd.push(data[i]);
+      }
+    }
+});
+
+
+}
+
     },
     template: `
     <!DOCTYPE html>
@@ -56,22 +74,28 @@ angular.module('app', [])
   <div class="input-group">
 
 <input type="text" class="form-control"  name="searched" ng-module = "input" id="sr" width="30" height="200"/>
-<div class="input-group-btn">
-
-    <button ng-click="$ctrl.btn()"  class="btn btn-default" class="button button2"><i class="glyphicon glyphicon-search"></i></button>
-       </div>
     </div>
 
-  <div class="responsive">
+  <div  ng-show="change" class="responsive">
   <div class="gallery">
  <div class="maz" target="_blank" ng-repeat=" image in $ctrl.dd" >
 
-<a href={{image.webformatURL}}> <img src="{{image.webformatURL }} class="borderimg" alt="Lights" width="300" height="200"  /></a><br><button class="lk"  ><span class="glyphicon glyphicon-thumbs-up"></span></button><br>
+<a href={{image.webformatURL}}> <img src="{{image.webformatURL }} "class="elmimg" alt="Lights" width="300" height="200"  /></a><br><button>Add to my favorit</button><button class="lk"  ><span class="glyphicon glyphicon-thumbs-up"></span></button><br>
 
   <div class="desc">Likes:{{image.likes}}</div>
   </div>
+  </div>
 </div>
+<div ng-hide="change" class="maz" target="_blank" ng-repeat=" video in $ctrl.dd" >
 
+<a href={{video.videos.large.url}} autoplay > <video src="{{video.videos.large.url}}" alt="Lights" width="300" height="200"  autoplay controls muted></video></a>
+
+  <div class="desc">Add a description of the image here</div>
+  </div>
+<div>
+<button ng-click=$ctrl.btn()>image</button> 
+<button ng-click=$ctrl.btn2()>videos</button>
+</div>
     </body>
     </html>
 
