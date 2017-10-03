@@ -34,12 +34,10 @@ request(options,function(err,result,body){
       //to send it to js component
       res.json(x.hits);
       console.log(x);
+ })
+ });
 
-  })
- 
-});
-
-app.post('/Search2',urlencodedParser, function (req, res) {
+app.post('/Searchvideo',urlencodedParser, function (req, res) {
   // TODO
     console.log(req.body);
   var options = {
@@ -62,8 +60,7 @@ request(options,function(err,result,body){
       //to send it to js component
       res.json(x.hits);
       console.log(x);
-
-  })
+})
  
 });
 
@@ -90,5 +87,4 @@ app.listen(port, function() {
 
 });
 
- ///////////////////////
 
