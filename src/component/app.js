@@ -65,7 +65,7 @@ angular.module('app', [])
 
 <div class="container">
   <div class="page-header">
-    <h1>Pika Search</h1>      
+    <h1>Pika Search </h1>      
   </div>
   <p>High Quality images&videos</p>      
        
@@ -73,7 +73,7 @@ angular.module('app', [])
   
   <div class="form-group">
 
-<input type="text" class="form-control"  name="searched" ng-module = "input" id="sr" width="30" height="200"/>
+<input type="text" class="form-control"  name="searched" ng-module = "input" id="sr" />
     </div>
 
 
@@ -110,14 +110,14 @@ angular.module('app', [])
 <button ng-click=$ctrl.btn2() class="btn btn-primary btn-block">videos</button>
 </div>
 
-<img src="http://animals.sandiegozoo.org/sites/default/files/2016-08/category-thumbnail-mammals_0.jpg" alt="Lights" width="300" height="200"/>
-<img src="https://wh1k8zidop.inscname.net/big/1078057.jpg?v=1493075154" width="300" height="200"/>
-<img src="http://ingridkuhn.com/themes/petz/img/service1.jpg" width="300" height="200"/>
-<img src=http://fotoartmagazine.gr/wp-content/uploads/2014/01/cherry-blossoms-night-japan.jpg alt="Lights" width="300" height="200"/>
-<img src=https://www.wildlifearchives.com/wp-content/uploads/2017/05/hyperion-tree-14953962628nkg4.jpg alt="Lights" width="300" height="200"/>
-<img src="http://i.dailymail.co.uk/i/pix/2015/04/21/10/27CE60B000000578-3042181-image-a-12_1429609310532.jpg" alt="Lights" width="300" height="200"/>
-<img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/910/overrides/hikers-baobab-trees-madagascar_91080_990x742.jpg" alt="Lights" width="300" height="200"/>
-<img src="https://img.myswitzerland.com/681916/573" alt="Lights" width="300" height="200"/>
+<img src="http://animals.sandiegozoo.org/sites/default/files/2016-08/category-thumbnail-mammals_0.jpg" alt="Lights" width="333" height="200"/>
+<img src="https://wh1k8zidop.inscname.net/big/1078057.jpg?v=1493075154" width="330" height="200"/>
+<img src="http://ingridkuhn.com/themes/petz/img/service1.jpg" width="330" height="200"/>
+<img src=http://fotoartmagazine.gr/wp-content/uploads/2014/01/cherry-blossoms-night-japan.jpg alt="Lights" width="333" height="200"/>
+<img src=https://www.wildlifearchives.com/wp-content/uploads/2017/05/hyperion-tree-14953962628nkg4.jpg alt="Lights" width="330" height="200"/>
+<img src="http://i.dailymail.co.uk/i/pix/2015/04/21/10/27CE60B000000578-3042181-image-a-12_1429609310532.jpg" alt="Lights" width="333" height="200"/>
+<img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/910/overrides/hikers-baobab-trees-madagascar_91080_990x742.jpg" alt="Lights" width="330" height="200"/>
+<img src="https://img.myswitzerland.com/681916/573" alt="Lights" width="333" height="200"/>
 
 
 
