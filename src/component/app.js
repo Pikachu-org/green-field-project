@@ -4,8 +4,10 @@ angular.module('app', [])
       this.array = [];
       var y=this;
       $scope.change;
+      $scope.stat;
       this.btn=function(){
          $scope.change=true;
+         $scope.stat=true;
       var elem=document.getElementById('sr').value;
       console.log(elem)
       $.ajax({
@@ -23,6 +25,7 @@ angular.module('app', [])
 
      this.btn2=function(){
        $scope.image=false;
+       $scope.stat=true;
       var elem=document.getElementById('sr').value;
       console.log(elem)
       $.ajax({
@@ -76,7 +79,10 @@ angular.module('app', [])
 <input type="text" class="form-control"  name="searched" ng-module = "input" id="sr" />
     </div>
 
-
+<div>
+<button ng-click=$ctrl.btn() class="btn btn-primary btn-block">image</button> 
+<button ng-click=$ctrl.btn2() class="btn btn-primary btn-block">videos</button>
+</div>
 
 
   <div  ng-show="change" >
@@ -100,16 +106,9 @@ angular.module('app', [])
 
 <a href={{video.videos.large.url}} autoplay > <video src="{{video.videos.large.url}}"  alt="Lights" width="300" height="200"  autoplay controls muted></video></a>
   </div>
-<div>
 
 
-
-
-
-<button ng-click=$ctrl.btn() class="btn btn-primary btn-block">image</button> 
-<button ng-click=$ctrl.btn2() class="btn btn-primary btn-block">videos</button>
-</div>
-
+<div ng-hide ="stat">
 <img src="http://animals.sandiegozoo.org/sites/default/files/2016-08/category-thumbnail-mammals_0.jpg" alt="Lights" width="333" height="200"/>
 <img src="https://wh1k8zidop.inscname.net/big/1078057.jpg?v=1493075154" width="330" height="200"/>
 <img src="http://ingridkuhn.com/themes/petz/img/service1.jpg" width="330" height="200"/>
@@ -119,7 +118,7 @@ angular.module('app', [])
 <img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/910/overrides/hikers-baobab-trees-madagascar_91080_990x742.jpg" alt="Lights" width="330" height="200"/>
 <img src="https://img.myswitzerland.com/681916/573" alt="Lights" width="333" height="200"/>
 
-
+</div>
 
     </body>
     </html>
