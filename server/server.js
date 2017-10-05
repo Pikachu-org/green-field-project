@@ -29,6 +29,7 @@ request(options,function(err,result,body){
   if(err){
     res.send('404')
   }
+  
   //parse the bodey to make it oboj 
    var x=JSON.parse(body)
    //console.log(x.hits)
@@ -47,7 +48,8 @@ db.find({}, function(err, data){
 })
   // send x  to js component to use it
       res.json(x.hits);
-      // console.log(x);
+     
+// console.log(x);
  })
  });
 //get the videos from api by key and the data that client requested

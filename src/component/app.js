@@ -1,8 +1,8 @@
 angular.module('app', [])
   .component('app', {
     controller: function($scope) {
-      this.array = [];
-      var y=this;
+     
+     
       $scope.photo;
       $scope.stat;
       $scope.vid;
@@ -10,6 +10,8 @@ angular.module('app', [])
 
       //ajax request for search images and hide videos and static images
       this.btnimag=function(){
+         this.array = [];
+          var y=this;
         $scope.vid = false;
          $scope.photo=true;
          $scope.stat=true;
@@ -30,6 +32,8 @@ angular.module('app', [])
 }
 //ajax request for search video and hide images and previos and static images
      this.btnvideo=function(){
+        this.array = [];
+        var y=this;
       $scope.vid = true;
       $scope.photo=false;
       $scope.stat=true;
@@ -52,6 +56,7 @@ angular.module('app', [])
 }
 //ajax request for button previous search images and hide the video and images and  static images
 this.btnprv=function(){
+    this.array = [];
   $scope.prev = true;
   $scope.stat=true;
   $scope.photo=false;
