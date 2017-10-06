@@ -21,8 +21,7 @@ Technical Difficulties:
 3) Sending requests from client to server.
 4) Merging team's work.
 5) Adding features for every image.
-6) Tariq and Ahmad were in the camp.
-7) Haya went to the dentist and broke her glasses.
+
 
 Code Description:
 
