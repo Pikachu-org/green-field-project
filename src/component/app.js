@@ -1,13 +1,21 @@
 angular.module('app', [])
   .component('app', {
     controller: function($scope) {
-      this.array = [];
-      var y=this;
-      $scope.change;
+     
+     
+      $scope.photo;
       $scope.stat;
-      this.btn=function(){
-         $scope.change=true;
+      $scope.vid;
+      $scope.prev;
+
+      //ajax request for search images and hide videos and static images
+      this.btnimag=function(){
+         this.array = [];
+          var y=this;
+        $scope.vid = false;
+         $scope.photo=true;
          $scope.stat=true;
+         $scope.prev = false;
       var elem=document.getElementById('sr').value;
       console.log(elem)
       $.ajax({
@@ -22,10 +30,14 @@ angular.module('app', [])
     }
 });
 }
-
-     this.btn2=function(){
-       $scope.image=false;
-       $scope.stat=true;
+//ajax request for search video and hide images and previos and static images
+     this.btnvideo=function(){
+        this.array = [];
+        var y=this;
+      $scope.vid = true;
+      $scope.photo=false;
+      $scope.stat=true;
+      $scope.prev = false;
       var elem=document.getElementById('sr').value;
       console.log(elem)
       $.ajax({
@@ -42,7 +54,28 @@ angular.module('app', [])
 
 
 }
-   },
+//ajax request for button previous search images and hide the video and images and  static images
+this.btnprv=function(){
+    this.array = [];
+  $scope.prev = true;
+  $scope.stat=true;
+  $scope.photo=false;
+  $scope.vid = false;
+      
+      $.ajax({
+    async: false,
+    url: "/previous",
+    method: "GET",
+    //dataType: "json",
+    success:function(data){
+      console.log(data[0])
+      for(var i=0;i<data.length;i++){
+        y.array.push(data[i]);
+      }
+    }
+})
+
+   }},
     template: `
     <!DOCTYPE html>
     <html>
@@ -50,22 +83,28 @@ angular.module('app', [])
       <title></title>
     </head>
     <style>
+   
     .maz{
       float:left;
       position:relative;
       margin-left:30px;
     }
+    
     .lk{
    
       position: absolute;
     right: 20px;
     }
-    
+    .btn btn-info{
+       position: absolute;
+    right: 20px;
+
+    }
 }
    
     </style>
     <body>
-
+<!---------------------------this for header----------------------->
 <div class="container">
   <div class="page-header">
     <h1>Pika Search </h1>      
@@ -73,40 +112,61 @@ angular.module('app', [])
   <p>High Quality images&videos</p>      
        
 </div>
-  
+
+<!---------------------this buttonstextbox--------------------->
+  <button ng-click=$ctrl.btnprv()  class="btn btn-info"> Show Previous </button>
   <div class="form-group">
 
 <input type="text" class="form-control"  name="searched" ng-module = "input" id="sr" />
     </div>
 
 <div>
-<button ng-click=$ctrl.btn() class="btn btn-primary btn-block">image</button> 
-<button ng-click=$ctrl.btn2() class="btn btn-primary btn-block">videos</button>
+<button ng-click=$ctrl.btnimag() class="btn btn-primary btn-block">image</button> 
+<button ng-click=$ctrl.btnvideo() class="btn btn-primary btn-block">videos</button>
 </div>
 
-
-  <div  ng-show="change" >
+<!--------------this for show images------------------------------------->
+  <div  ng-show="photo" >
  
  <div class="maz" target="_blank"  ng-repeat=" image in $ctrl.array" >
 
 <a href={{image.webformatURL}}> <img src="{{image.webformatURL }}  alt="Lights" width="300" height="200"  /></a><br>
-<button>Add to my favorit</button>
-<button class="lk"  ><span class="glyphicon glyphicon-thumbs-up"></span></button><br>
+<button class="btn btn-info" > fav</button>
+<button class="lk"  ><span class="glyphicon glyphicon-thumbs-up"></span></button>
+<br>
 
-  <div class="desc">Likes:{{image.likes}}</div>
+
+
+  <div>Likes:{{image.likes}}</div>
   
   </div>
 </div>
 
+<!-----------------------this for show privious search images-------------->
+<div  ng-show="prev" >
+ 
+ <div class="maz" target="_blank"  ng-repeat=" image in $ctrl.array" >
+
+<a href={{image.webformatURL}}> <img src="{{image.webformatURL }}  alt="Lights" width="300" height="200"  /></a><br>
+<button class="btn btn-info" > fav</button>
+<button class="lk"  ><span class="glyphicon glyphicon-thumbs-up"></span></button>
+
+<br>
 
 
 
+  <div>Likes:{{image.likes}}</div>
+  
+  </div>
+</div>
 
-<div ng-hide="change" class="maz" target="_blank" ng-repeat=" video in $ctrl.array" >
+<!-----------------this for show video---------------------------------->
+<div ng-show="vid" class="maz" target="_blank" ng-repeat=" video in $ctrl.array" >
 
 <a href={{video.videos.large.url}} autoplay > <video src="{{video.videos.large.url}}"  alt="Lights" width="300" height="200"  autoplay controls muted></video></a>
   </div>
 
+<!------------this for static picture-------------------------------------->
 
 <div ng-hide ="stat">
 <img src="http://animals.sandiegozoo.org/sites/default/files/2016-08/category-thumbnail-mammals_0.jpg" alt="Lights" width="333" height="200"/>
