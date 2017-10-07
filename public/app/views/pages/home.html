@@ -1,0 +1,148 @@
+    <!-- <style>
+    .maz{
+      float:left;
+      position:relative;
+      margin-left:30px;
+    }
+    .lk{
+   
+      position: absolute;
+    right: 20px;
+    }
+    .borderimg {
+    border: 10px solid transparent;
+    padding: 15px;
+   
+}
+   
+    </style>
+
+
+  <div ng-controller = "searcher">
+  <div class="input-group">
+
+<input type="text" class="form-control"  name="searched" ng-module = "input" id="sr" width="30" height="200"/>
+<div class="input-group-btn">
+
+    <button ng-click="btn()"  class="btn btn-default" class="button button2"><i class="glyphicon glyphicon-search"></i></button>
+       </div>
+    </div>
+
+  <div class="responsive">
+  <div class="gallery">
+ <div class="maz" target="_blank" ng-repeat=" image in dd">
+
+<a href={{image.webformatURL}}> <img src="{{image.webformatURL }}" class="borderimg" alt="Lights" width="300" height="200" /></a>
+<br>
+<button class="lk"  ><span class="glyphicon glyphicon-thumbs-up"></span></button><br>
+
+  <div class="desc">Likes:{{image.likes}}</div>
+  </div>
+</div>
+    </div>
+  </div> -->
+
+
+
+ 
+  
+  <style>
+ 
+  .maz{
+    float:left;
+    position:relative;
+    margin-left:30px;
+  }
+  
+  .lk{
+ 
+    position: absolute;
+  right: 20px;
+  }
+  .btn btn-info{
+     position: absolute;
+  right: 20px;
+
+  }
+}
+ 
+  </style>
+ <!-- <div ng-controller = "searcher"> -->
+<!-- -------------------------this for header------------------------>
+<div class="container">
+<div class="page-header">
+  <h2>What are you looking for? </h2>      
+</div>
+<!-- <p>High Quality images & videos</p>       --> 
+     
+</div>
+
+<!---------------------this buttonstextbox---------------------->
+<button ng-click=btnprv()  class="btn btn-info"> Show Previous </button>
+<div class="form-group">
+
+<input type="text" class="form-control"  name="searched" ng-module = "input" id="sr" />
+  </div>
+
+<div>
+<button ng-click=btnimag() class="btn btn-primary btn-block">image</button> 
+<button ng-click=btnvideo() class="btn btn-primary btn-block">videos</button>
+</div>
+
+<!--------------this for show images-------------------------------------->
+<br>
+<div  ng-show="photo" >
+
+<div class="maz" target="_blank"  ng-repeat=" image in array" >
+
+<a href={{image.webformatURL}}> <img src="{{image.webformatURL }}"  alt="Lights" width="300" height="200"/></a><br>
+<button class="btn btn-info" > fav</button>
+<button class="lk"  ><span class="glyphicon glyphicon-thumbs-up"></span></button>
+<br>
+
+<div>Likes:{{image.likes}}</div>
+
+</div>
+</div>
+<!--------------- this for show privious search images ---------------- -->
+<div  ng-show="prev" >
+
+<div class="maz" target="_blank"  ng-repeat=" image in array" >
+
+<a href={{image.webformatURL}}> <img src="{{image.webformatURL }}  alt="Lights" width="300" height="200"  /></a><br>
+<button class="btn btn-info" > fav</button>
+<button class="lk"  ><span class="glyphicon glyphicon-thumbs-up"></span></button>
+
+<br>
+
+
+
+<div>Likes:{{image.likes}}</div>
+
+</div>
+</div>
+
+<!-----------------this for show video---------------------------------->
+<br>
+<div ng-show="vid" class="maz" target="_blank" ng-repeat=" video in array" >
+
+<a href={{video.videos.large.url}}> <video src="{{video.videos.large.url}}"  alt="Lights" width="300" height="200"  autoplay controls muted></video></a>
+</div>
+
+<!------------this for static picture-------------------------------------->
+<center>
+<div ng-hide ="stat">
+  <br>
+<img src="https://i.ytimg.com/vi/hBF_6zASKvM/maxresdefault.jpg" alt="Lights" width="333" height="200"/>
+<img src="http://animals.sandiegozoo.org/sites/default/files/2016-08/category-thumbnail-mammals_0.jpg" alt="Lights" width="333" height="200"/>
+<img src="https://wh1k8zidop.inscname.net/big/1078057.jpg?v=1493075154" width="330" height="200"/>
+<img src="http://ingridkuhn.com/themes/petz/img/service1.jpg" width="330" height="200"/>
+<img src=http://fotoartmagazine.gr/wp-content/uploads/2014/01/cherry-blossoms-night-japan.jpg alt="Lights" width="333" height="200"/>
+<img src=https://www.wildlifearchives.com/wp-content/uploads/2017/05/hyperion-tree-14953962628nkg4.jpg alt="Lights" width="330" height="200"/>
+<img src="http://i.dailymail.co.uk/i/pix/2015/04/21/10/27CE60B000000578-3042181-image-a-12_1429609310532.jpg" alt="Lights" width="333" height="200"/>
+<img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/910/overrides/hikers-baobab-trees-madagascar_91080_990x742.jpg" alt="Lights" width="330" height="200"/>
+<img src="https://img.myswitzerland.com/681916/573" alt="Lights" width="333" height="200"/>
+
+</div>
+</center>
+<!-- </div> -->

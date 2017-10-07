@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/"> <!-- to get rid of the # when sendignn the route to the angular -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <!-- api mazen's work -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <!-- end of mazen's work --> 
+      
+    <script src = "assets/js/angular.js"></script>
+    <script src = "assets/js/angular-route.js"></script>
+    <script src = "app/app.js"></script> <!-- injecting the angular module files into the page --> 
+    <script src = "app/routes.js"></script> 
+    <!-- call the files in the index cause we implement angular-->
+    <!-- app is all the angular files, so we will call the app here-->
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/comp2.js"></script>    
+    <script src="app/views/logout.js"></script>  
+
+
+    <title>Theme Template for Bootstrap</title>
+
+  </head>
+
+  <body ng-app = "userApp" "> <!-- we added the controller here not like the one in the register because we want this controller to control all the views once the user is logged in "like the session of the user" the "as main" is a nickname like before -->
+
+
+      
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">will always be Hello World!!</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="/home">Home</a></li> #/ was added to send the right route to appRoutes in angular -->
+            <li><a href="/login">Login</a></li>
+            <li><a href="/">Register</a></li>
+            <li><a href="/logout" ng-controller = "logOut" ng-click = "logOutt()">Logout</a></li>
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">guess what?! <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">what?</a></li>
+                <li><a href="#">Another what??</a></li>
+                <li><a href="#">Something else other than what??</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li> -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>PickaSearch</h1>
+        <p>High Quality images & videos</p>
+      </div>
+
+      <div ng-view></div> <!-- injecting the templates into our index.html pages -->
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src = "assets/js/jquery.js"></script>
+    <script src = "assets/js/bootstrap.js"></script>
+
+  </body>
+</html>

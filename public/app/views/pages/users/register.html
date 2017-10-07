@@ -1,0 +1,32 @@
+<div class = "page-header"></div>
+	<h1>User Registration</h1>
+<form ng-submit = "register.regUser(regData);"> <!-- when the submit button is pressed provoke the regUser function, it's called like this cause of the controllerAs in the routes where we called it   -->
+
+	<!-- Email -->
+	<label>Email:</label>
+	<input class = "form-control" type="text" name="email" placeholder="please enter email" ng-model="register.regData.email"> <!-- ng-modle is what will take the data submitted in the input fields and send it to the controller as one object-->
+	<br>
+	<!-- Username -->
+	<label>Username:</label>
+	<input class = "form-control"  type="text" name="username" placeholder="please enter username" ng-model="register.regData.username">
+	<br>
+	<!-- Password -->
+	<label>Password:</label>
+	<input class = "form-control"  type="password" name="password" placeholder="please enter password" ng-model="register.regData.password">
+	<br>
+	<button class="btn btn-primary" type="submit">Register</button>
+</form>
+
+ <br>
+
+<div class = "row show-hide message" ng-show = "register.successMsg"> <!-- this means only show this dive when there is register.successMasg, same goes for error -->
+<div class = "alert alert-success">{{ register.successMsg }}</div> <!-- this is how we take data from angular to directly show it in html, the body of the message is the "user created!" or the error messge.
+the register is the nickname of the controller, we use it to refer to the controller in which the variable successMsg is declared.
+-->
+</div>
+
+ <br>
+
+<div class = "row show-hide message" ng-show = "register.errorMsg">
+<div class = "alert alert-danger">{{ register.errorMsg }}</div>
+</div>
