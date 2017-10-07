@@ -26,4 +26,13 @@ Technical Difficulties:
 Code Description:
 
 Front-End:
-  the main module is the "userApp" 
+  the main module is the "userApp" which is injected with all the AngularJS files that are used, and it renders all the result using the ng-App directive on index.html.
+  we have 3 AngularJS controllers deals with: Registering, Searching, Logging out.
+  bootstrap and css for the design.
+  
+Back-End:
+  used Express with Nodejs for the server and MongoDB with Mongoose for the database.
+  fetching pictures and video from an API.
+  
+  
+  
